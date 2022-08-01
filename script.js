@@ -20,6 +20,16 @@ function createSnake() {
     }
 }
 
+let food = {
+    x: Math.floor(Math.random() * 15 + 1) * box,
+    y: Math.floor(Math.random() * 15 + 1) * box
+}
+
+function drawFood() {
+    context.fillStyle= "coral";
+    context.fillRect(food.x, food.y, box, box);
+}
+
 document.addEventListener('keydown', update);
 function update(event) {
     if(event.keyCode == 39 && direction != "left") direction = "right"; //keyCode 39 = seta para direita
@@ -38,6 +48,7 @@ function startGame() {
 
     createBG();
     createSnake();
+    drawFood();
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
